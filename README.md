@@ -10,7 +10,8 @@ macBookPro 13 2017: intel core i5 3.1G
 | 3 million loop json marshal&unmarshal| 155 seconds| 6 seconds| 
 | http server ab -n10000 -c200 | 17seconds | x | 
 
-ab benchmark on ti am335
+## ab benchmark 
+gowebserver run on ti am335,connect to macbookpro with lan
 ```shell
 ➜  goweb ab -n10000 -c200 http://10.10.80.15:12345/hello
 This is ApacheBench, Version 2.3 <$Revision: 1826891 $>
@@ -70,6 +71,7 @@ Percentage of the requests served within a certain time (ms)
 
 
 ab benchmark on windows
+gowebserver run on thinkpad ,connect to macbookpro with lan
 ```shell
 ➜  goweb ab -n10000 -c200 http://10.10.80.15:12345/hello
 This is ApacheBench, Version 2.3 <$Revision: 1826891 $>
