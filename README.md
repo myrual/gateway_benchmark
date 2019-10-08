@@ -1,9 +1,11 @@
 # gateway_benchmark
 Gateway performance benchmark
 
-TI AM335x: single core 800Mhz cortex A8
-Banana pi r64: dual core cortex A53
-macBookPro 13 2017: intel core i5 3.1G
+TI AM335x: single core cortex A8@800Mhz
+
+Banana pi r64: dual core cortex A53 @1.35Ghz
+
+macBookPro 13 2017: intel core i5 3.1Ghz
 
 | benchmark item | TI AM335x | macBookPro 13 2017| Banana pi r64|
 |--|--|--|--|
