@@ -128,3 +128,61 @@ Percentage of the requests served within a certain time (ms)
   99%    169
  100%   1046 (longest request)
 ```
+
+ab testing on banana-pi r64
+```shell
+➜  ~ ab -n10000 -c200 http://192.168.12.190:12345/hello
+This is ApacheBench, Version 2.3 <$Revision: 1826891 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.12.190 (be patient)
+Completed 1000 requests
+Completed 2000 requests
+Completed 3000 requests
+Completed 4000 requests
+Completed 5000 requests
+Completed 6000 requests
+Completed 7000 requests
+Completed 8000 requests
+Completed 9000 requests
+Completed 10000 requests
+Finished 10000 requests
+
+
+Server Software:        
+Server Hostname:        192.168.12.190
+Server Port:            12345
+
+Document Path:          /hello
+Document Length:        14 bytes
+
+Concurrency Level:      200
+Time taken for tests:   1.707 seconds
+Complete requests:      10000
+Failed requests:        0
+Total transferred:      1310000 bytes
+HTML transferred:       140000 bytes
+Requests per second:    5856.76 [#/sec] (mean)
+Time per request:       34.149 [ms] (mean)
+Time per request:       0.171 [ms] (mean, across all concurrent requests)
+Transfer rate:          749.25 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    8  47.2      1     447
+Processing:     0   26  25.2     22     362
+Waiting:        0   25  25.1     22     362
+Total:          1   33  53.7     25     777
+
+Percentage of the requests served within a certain time (ms)
+  50%     25
+  66%     28
+  75%     30
+  80%     32
+  90%     44
+  95%     62
+  98%     90
+  99%    464
+ 100%    777 (longest request)
+```
