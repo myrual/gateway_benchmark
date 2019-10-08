@@ -71,12 +71,12 @@ Percentage of the requests served within a certain time (ms)
 
 ab benchmark on windows
 ```shell
-➜  goweb ab -n10000 -c200 http://192.168.200.86:12345/hello 
+➜  goweb ab -n10000 -c200 http://10.10.80.15:12345/hello
 This is ApacheBench, Version 2.3 <$Revision: 1826891 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
-Benchmarking 192.168.200.86 (be patient)
+Benchmarking 10.10.80.15 (be patient)
 Completed 1000 requests
 Completed 2000 requests
 Completed 3000 requests
@@ -91,38 +91,38 @@ Finished 10000 requests
 
 
 Server Software:        
-Server Hostname:        192.168.200.86
+Server Hostname:        10.10.80.15
 Server Port:            12345
 
 Document Path:          /hello
 Document Length:        14 bytes
 
 Concurrency Level:      200
-Time taken for tests:   16.500 seconds
+Time taken for tests:   1.242 seconds
 Complete requests:      10000
 Failed requests:        0
 Total transferred:      1310000 bytes
 HTML transferred:       140000 bytes
-Requests per second:    606.05 [#/sec] (mean)
-Time per request:       330.006 [ms] (mean)
-Time per request:       1.650 [ms] (mean, across all concurrent requests)
-Transfer rate:          77.53 [Kbytes/sec] received
+Requests per second:    8048.98 [#/sec] (mean)
+Time per request:       24.848 [ms] (mean)
+Time per request:       0.124 [ms] (mean, across all concurrent requests)
+Transfer rate:          1029.70 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:       11  161 359.2     53    3490
-Processing:    16  113 357.1     53    6801
-Waiting:       10  108 351.3     52    6799
-Total:         29  275 566.9    109    7863
+Connect:        1    8  63.5      3    1036
+Processing:     1   10  23.7      6     168
+Waiting:        1   10  23.7      5     167
+Total:          4   18  67.6      9    1046
 
 Percentage of the requests served within a certain time (ms)
-  50%    109
-  66%    119
-  75%    128
-  80%    150
-  90%    515
-  95%   1247
-  98%   1660
-  99%   2619
- 100%   7863 (longest request)
+  50%      9
+  66%     12
+  75%     14
+  80%     15
+  90%     18
+  95%     23
+  98%    166
+  99%    169
+ 100%   1046 (longest request)
 ```
