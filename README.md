@@ -2,13 +2,12 @@
 Gateway performance benchmark
 
 TI AM335x: single core 800Mhz cortex A8
-
+Banana pi r64: dual core cortex A53
 macBookPro 13 2017: intel core i5 3.1G
 
-| benchmark item | TI AM335x | macBookPro 13 2017|
+| benchmark item | TI AM335x | macBookPro 13 2017| Banana pi r64|
 |--|--|--|
-| 3 million loop json marshal&unmarshal| 155 seconds| 6 seconds| 
-| http server ab -n10000 -c200 | 17seconds | x | 
+| 3 million loop json marshal&unmarshal| 155 seconds| 6 seconds| 49 seconds|
 
 ## ab benchmark 
 gowebserver run on ti am335,connect to macbookpro with lan
