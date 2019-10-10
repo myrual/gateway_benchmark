@@ -287,3 +287,52 @@ Percentage of the requests served within a certain time (ms)
   99%     17
  100%     33 (longest request)
  ```
+ 
+ ```shell
+ ➜  Downloads ab -n10000 -c20 -t30 http://192.168.12.84:12345/hello
+This is ApacheBench, Version 2.3 <$Revision: 1826891 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.12.84 (be patient)
+Completed 5000 requests
+Completed 10000 requests
+Finished 10609 requests
+
+
+Server Software:        
+Server Hostname:        192.168.12.84
+Server Port:            12345
+
+Document Path:          /hello
+Document Length:        14 bytes
+
+Concurrency Level:      20
+Time taken for tests:   30.002 seconds
+Complete requests:      10609
+Failed requests:        0
+Total transferred:      1389779 bytes
+HTML transferred:       148526 bytes
+Requests per second:    353.61 [#/sec] (mean)
+Time per request:       56.559 [ms] (mean)
+Time per request:       2.828 [ms] (mean, across all concurrent requests)
+Transfer rate:          45.24 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   0.2      1       7
+Processing:     2   56  12.0     58     107
+Waiting:        2   55  11.9     58      69
+Total:          3   56  12.0     59     108
+
+Percentage of the requests served within a certain time (ms)
+  50%     59
+  66%     59
+  75%     59
+  80%     59
+  90%     60
+  95%     60
+  98%     62
+  99%     63
+ 100%    108 (longest request)
+ ```
