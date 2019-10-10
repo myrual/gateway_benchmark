@@ -190,6 +190,7 @@ Percentage of the requests served within a certain time (ms)
  100%    777 (longest request)
 ```
 ab benchmark on imx6ul
+cocurrent 200
 ```shell
 ➜  Downloads  ab -n10000 -c200 -t30 http://192.168.12.84:12345/hello
 This is ApacheBench, Version 2.3 <$Revision: 1826891 $>
@@ -238,3 +239,51 @@ Percentage of the requests served within a certain time (ms)
   99%   1807
  100%   3468 (longest request)
 ```
+cocurrent 2
+```
+➜  Downloads ab -n10000 -c2 -t30 http://192.168.12.84:12345/hello 
+This is ApacheBench, Version 2.3 <$Revision: 1826891 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.12.84 (be patient)
+Completed 5000 requests
+Finished 8156 requests
+
+
+Server Software:        
+Server Hostname:        192.168.12.84
+Server Port:            12345
+
+Document Path:          /hello
+Document Length:        14 bytes
+
+Concurrency Level:      2
+Time taken for tests:   30.002 seconds
+Complete requests:      8156
+Failed requests:        0
+Total transferred:      1068436 bytes
+HTML transferred:       114184 bytes
+Requests per second:    271.85 [#/sec] (mean)
+Time per request:       7.357 [ms] (mean)
+Time per request:       3.678 [ms] (mean, across all concurrent requests)
+Transfer rate:          34.78 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   0.1      1       3
+Processing:     2    7   3.4      7      32
+Waiting:        1    4   2.2      4      29
+Total:          3    7   3.4      7      33
+
+Percentage of the requests served within a certain time (ms)
+  50%      7
+  66%      8
+  75%      9
+  80%     10
+  90%     11
+  95%     13
+  98%     16
+  99%     17
+ 100%     33 (longest request)
+ ```
