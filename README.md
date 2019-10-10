@@ -13,95 +13,114 @@ i.mx6ul : cortex A7@700Mhz
 |--|--|--|--|--|
 | 3 million loop json marshal&unmarshal| 155 seconds| 6 seconds| 49 seconds|227 seconds|
 
-## ab benchmark 
-gowebserver run on ti am335,connect to macbookpro with lan
-```shell
-➜  goweb ab -n10000 -c200 http://10.10.80.15:12345/hello
-This is ApacheBench, Version 2.3 <$Revision: 1826891 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
+# ab benchmark
+## gowebserver run on ti am335
 
-Benchmarking 10.10.80.15 (be patient)
-Completed 1000 requests
-Completed 2000 requests
-Completed 3000 requests
-Completed 4000 requests
-Completed 5000 requests
-Completed 6000 requests
-Completed 7000 requests
-Completed 8000 requests
-Completed 9000 requests
-Completed 10000 requests
-Finished 10000 requests
-
-
-Server Software:        
-Server Hostname:        10.10.80.15
-Server Port:            12345
-
-Document Path:          /hello
-Document Length:        14 bytes
-
-Concurrency Level:      200
-Time taken for tests:   17.885 seconds
-Complete requests:      10000
+### Concurrency Level:      2
+```
+➜  Downloads ab -n10000 -c2 -t30 http://10.10.80.15:12345/hello
+...
+Concurrency Level:      2
+Time taken for tests:   30.001 seconds
+Complete requests:      15709
 Failed requests:        0
-Total transferred:      1310000 bytes
-HTML transferred:       140000 bytes
-Requests per second:    559.13 [#/sec] (mean)
-Time per request:       357.699 [ms] (mean)
-Time per request:       1.788 [ms] (mean, across all concurrent requests)
-Transfer rate:          71.53 [Kbytes/sec] received
+Total transferred:      2057879 bytes
+HTML transferred:       219926 bytes
+Requests per second:    523.62 [#/sec] (mean)
+Time per request:       3.820 [ms] (mean)
+Time per request:       1.910 [ms] (mean, across all concurrent requests)
+Transfer rate:          66.99 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0    7  27.1      0     136
-Processing:     3  348  54.2    359     638
-Waiting:        2  346  50.5    358     619
-Total:          3  355  55.7    361     715
+Connect:        0    0   0.1      0       9
+Processing:     1    3   1.9      3      97
+Waiting:        1    3   1.9      3      90
+Total:          2    4   1.9      4      97
 
 Percentage of the requests served within a certain time (ms)
-  50%    361
-  66%    363
-  75%    365
-  80%    366
-  90%    380
-  95%    425
-  98%    472
-  99%    499
- 100%    715 (longest request)
+  50%      4
+  66%      5
+  75%      5
+  80%      5
+  90%      6
+  95%      6
+  98%      6
+  99%      6
+ 100%     97 (longest request)
+```
+### Concurrency Level:      20
+```shell
+➜  Downloads ab -n10000 -c20 -t30 http://10.10.80.15:12345/hello
+...
+Concurrency Level:      20
+Time taken for tests:   30.001 seconds
+Complete requests:      16713
+Failed requests:        0
+Total transferred:      2189403 bytes
+HTML transferred:       233982 bytes
+Requests per second:    557.09 [#/sec] (mean)
+Time per request:       35.901 [ms] (mean)
+Time per request:       1.795 [ms] (mean, across all concurrent requests)
+Transfer rate:          71.27 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       3
+Processing:     2   35   7.8     37      70
+Waiting:        1   35   7.6     37      47
+Total:          2   36   7.8     37      70
+
+Percentage of the requests served within a certain time (ms)
+  50%     37
+  66%     38
+  75%     38
+  80%     38
+  90%     38
+  95%     39
+  98%     40
+  99%     44
+ 100%     70 (longest request)
+```
+### Concurrency Level:      200
+```shell
+➜  Downloads ab -n10000 -c200 -t30 http://10.10.80.15:12345/hello
+...
+Concurrency Level:      200
+Time taken for tests:   30.001 seconds
+Complete requests:      16761
+Failed requests:        0
+Total transferred:      2195691 bytes
+HTML transferred:       234654 bytes
+Requests per second:    558.68 [#/sec] (mean)
+Time per request:       357.984 [ms] (mean)
+Time per request:       1.790 [ms] (mean, across all concurrent requests)
+Transfer rate:          71.47 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0   46 264.0      0    3821
+Processing:     3  306  58.2    308     808
+Waiting:        2  305  55.6    306     808
+Total:          4  352 272.5    312    4155
+
+Percentage of the requests served within a certain time (ms)
+  50%    312
+  66%    342
+  75%    354
+  80%    358
+  90%    366
+  95%    377
+  98%   1577
+  99%   1607
+ 100%   4155 (longest request)
 ```
 
-
-ab benchmark on windows
+# ab benchmark on windows
 gowebserver run on thinkpad ,connect to macbookpro with lan
 ```shell
 ➜  goweb ab -n10000 -c200 http://10.10.80.15:12345/hello
-This is ApacheBench, Version 2.3 <$Revision: 1826891 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 10.10.80.15 (be patient)
-Completed 1000 requests
-Completed 2000 requests
-Completed 3000 requests
-Completed 4000 requests
-Completed 5000 requests
-Completed 6000 requests
-Completed 7000 requests
-Completed 8000 requests
-Completed 9000 requests
-Completed 10000 requests
-Finished 10000 requests
-
-
-Server Software:        
-Server Hostname:        10.10.80.15
-Server Port:            12345
-
-Document Path:          /hello
-Document Length:        14 bytes
-
+...
 Concurrency Level:      200
 Time taken for tests:   1.242 seconds
 Complete requests:      10000
