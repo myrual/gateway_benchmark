@@ -190,73 +190,9 @@ Percentage of the requests served within a certain time (ms)
  100%    777 (longest request)
 ```
 ab benchmark on imx6ul
-cocurrent 200
-```shell
-➜  Downloads  ab -n10000 -c200 -t30 http://192.168.12.84:12345/hello
-This is ApacheBench, Version 2.3 <$Revision: 1826891 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.12.84 (be patient)
-Completed 5000 requests
-Completed 10000 requests
-Finished 10713 requests
-
-
-Server Software:        
-Server Hostname:        192.168.12.84
-Server Port:            12345
-
-Document Path:          /hello
-Document Length:        14 bytes
-
-Concurrency Level:      200
-Time taken for tests:   30.002 seconds
-Complete requests:      10713
-Failed requests:        0
-Total transferred:      1403796 bytes
-HTML transferred:       150024 bytes
-Requests per second:    357.08 [#/sec] (mean)
-Time per request:       560.103 [ms] (mean)
-Time per request:       2.801 [ms] (mean, across all concurrent requests)
-Transfer rate:          45.69 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0  105 362.4      1    2564
-Processing:     3  450  86.8    442    1051
-Waiting:        2  447  82.9    441     670
-Total:          7  555 375.3    456    3468
-
-Percentage of the requests served within a certain time (ms)
-  50%    456
-  66%    501
-  75%    542
-  80%    556
-  90%    576
-  95%   1702
-  98%   1774
-  99%   1807
- 100%   3468 (longest request)
-```
-cocurrent 2
+### Concurrency Level:      2
 ```
 ➜  Downloads ab -n10000 -c2 -t30 http://192.168.12.84:12345/hello 
-This is ApacheBench, Version 2.3 <$Revision: 1826891 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.12.84 (be patient)
-Completed 5000 requests
-Finished 8156 requests
-
-
-Server Software:        
-Server Hostname:        192.168.12.84
-Server Port:            12345
-
-Document Path:          /hello
-Document Length:        14 bytes
 
 Concurrency Level:      2
 Time taken for tests:   30.002 seconds
@@ -287,25 +223,10 @@ Percentage of the requests served within a certain time (ms)
   99%     17
  100%     33 (longest request)
  ```
- 
+ ### Concurrency Level:      20
  ```shell
  ➜  Downloads ab -n10000 -c20 -t30 http://192.168.12.84:12345/hello
-This is ApacheBench, Version 2.3 <$Revision: 1826891 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.12.84 (be patient)
-Completed 5000 requests
-Completed 10000 requests
-Finished 10609 requests
-
-
-Server Software:        
-Server Hostname:        192.168.12.84
-Server Port:            12345
-
-Document Path:          /hello
-Document Length:        14 bytes
+....
 
 Concurrency Level:      20
 Time taken for tests:   30.002 seconds
@@ -336,3 +257,37 @@ Percentage of the requests served within a certain time (ms)
   99%     63
  100%    108 (longest request)
  ```
+### Concurrency Level:      200
+```shell
+➜  Downloads  ab -n10000 -c200 -t30 http://192.168.12.84:12345/hello
+...
+
+Concurrency Level:      200
+Time taken for tests:   30.002 seconds
+Complete requests:      10713
+Failed requests:        0
+Total transferred:      1403796 bytes
+HTML transferred:       150024 bytes
+Requests per second:    357.08 [#/sec] (mean)
+Time per request:       560.103 [ms] (mean)
+Time per request:       2.801 [ms] (mean, across all concurrent requests)
+Transfer rate:          45.69 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0  105 362.4      1    2564
+Processing:     3  450  86.8    442    1051
+Waiting:        2  447  82.9    441     670
+Total:          7  555 375.3    456    3468
+
+Percentage of the requests served within a certain time (ms)
+  50%    456
+  66%    501
+  75%    542
+  80%    556
+  90%    576
+  95%   1702
+  98%   1774
+  99%   1807
+ 100%   3468 (longest request)
+```
