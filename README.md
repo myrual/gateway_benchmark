@@ -7,9 +7,11 @@ Banana pi r64: dual core cortex A53 @1.35Ghz
 
 macBookPro 13 2017: intel core i5 3.1Ghz
 
-| benchmark item | TI AM335x | macBookPro 13 2017| Banana pi r64|
-|--|--|--|--|
-| 3 million loop json marshal&unmarshal| 155 seconds| 6 seconds| 49 seconds|
+i.mx6ul : cortex A7@700Mhz
+
+| benchmark item | TI AM335x | macBookPro 13 2017| Banana pi r64| imx6ul|
+|--|--|--|--|--|
+| 3 million loop json marshal&unmarshal| 155 seconds| 6 seconds| 49 seconds|227 seconds|
 
 ## ab benchmark 
 gowebserver run on ti am335,connect to macbookpro with lan
