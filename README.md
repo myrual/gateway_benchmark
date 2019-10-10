@@ -167,6 +167,39 @@ Percentage of the requests served within a certain time (ms)
   99%    172
  100%   2079 (longest request)
 ```
+### Concurrency Level:      20
+```shell
+➜  Downloads ab -n10000 -c20 -t30 http://192.168.12.245:12345/hello
+.....
+Concurrency Level:      20
+Time taken for tests:   8.831 seconds
+Complete requests:      50000
+Failed requests:        0
+Total transferred:      6550000 bytes
+HTML transferred:       700000 bytes
+Requests per second:    5661.57 [#/sec] (mean)
+Time per request:       3.533 [ms] (mean)
+Time per request:       0.177 [ms] (mean, across all concurrent requests)
+Transfer rate:          724.28 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   1.5      0      91
+Processing:     0    3   2.5      3      93
+Waiting:        0    3   2.3      3      93
+Total:          1    3   3.1      3     112
+
+Percentage of the requests served within a certain time (ms)
+  50%      3
+  66%      3
+  75%      4
+  80%      4
+  90%      5
+  95%      7
+  98%      8
+  99%     10
+ 100%    112 (longest request)
+```
 ## ab benchmark on imx6ul
 ### Concurrency Level:      2
 ```
