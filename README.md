@@ -9,9 +9,9 @@ macBookPro 13 2017: intel core i5 3.1Ghz
 
 i.mx6ul : cortex A7@700Mhz
 
-| benchmark item | TI AM335x | macBookPro 13 2017| Banana pi r64| imx6ul|
-|--|--|--|--|--|
-| 3 million loop json marshal&unmarshal| 155 seconds| 6 seconds| 49 seconds|227 seconds|
+| benchmark item | TI AM335x | macBookPro 13 2017| Banana pi r64| imx6ul| imx1012 |
+|--|--|--|--|--|--|
+| 3 million loop json marshal&unmarshal| 155 seconds| 6 seconds| 49 seconds|227 seconds| 66 seconds|
 
 # ab benchmark
 ## gowebserver run on ti am335
@@ -356,4 +356,101 @@ Percentage of the requests served within a certain time (ms)
   98%   1774
   99%   1807
  100%   3468 (longest request)
+```
+
+## ab benchmark on imx1012A
+### Concurrency Level:      2
+```shell
+Concurrency Level:      2
+Time taken for tests:   30.000 seconds
+Complete requests:      29421
+Failed requests:        0
+Total transferred:      3854151 bytes
+HTML transferred:       411894 bytes
+Requests per second:    980.69 [#/sec] (mean)
+Time per request:       2.039 [ms] (mean)
+Time per request:       1.020 [ms] (mean, across all concurrent requests)
+Transfer rate:          125.46 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.3      0      21
+Processing:     1    2   0.4      2      24
+Waiting:        0    1   0.4      1      24
+Total:          1    2   0.6      2      28
+
+Percentage of the requests served within a certain time (ms)
+  50%      2
+  66%      2
+  75%      2
+  80%      2
+  90%      2
+  95%      2
+  98%      3
+  99%      3
+ 100%     28 (longest request)
+```
+
+### Concurrency Level:      20
+```shell
+Concurrency Level:      20
+Time taken for tests:   30.000 seconds
+Complete requests:      34347
+Failed requests:        0
+Total transferred:      4499457 bytes
+HTML transferred:       480858 bytes
+Requests per second:    1144.90 [#/sec] (mean)
+Time per request:       17.469 [ms] (mean)
+Time per request:       0.873 [ms] (mean, across all concurrent requests)
+Transfer rate:          146.47 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1  15.7      0     465
+Processing:     1   16   4.5     18      69
+Waiting:        1   16   4.5     18      69
+Total:          1   17  16.2     18     482
+
+Percentage of the requests served within a certain time (ms)
+  50%     18
+  66%     18
+  75%     18
+  80%     18
+  90%     19
+  95%     19
+  98%     20
+  99%     21
+ 100%    482 (longest request)
+ 
+```
+### Concurrency Level:      200
+```
+Concurrency Level:      200
+Time taken for tests:   30.007 seconds
+Complete requests:      35128
+Failed requests:        0
+Total transferred:      4601899 bytes
+HTML transferred:       491806 bytes
+Requests per second:    1170.67 [#/sec] (mean)
+Time per request:       170.842 [ms] (mean)
+Time per request:       0.854 [ms] (mean, across all concurrent requests)
+Transfer rate:          149.77 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0   10  64.5      1     663
+Processing:     1  160  30.6    169     467
+Waiting:        1  159  29.0    169     467
+Total:          2  170  65.4    170     877
+
+Percentage of the requests served within a certain time (ms)
+  50%    170
+  66%    172
+  75%    173
+  80%    173
+  90%    175
+  95%    178
+  98%    468
+  99%    570
+ 100%    877 (longest request)
 ```
